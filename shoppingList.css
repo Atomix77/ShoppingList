@@ -1,0 +1,32 @@
+.container {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+}
+
+.recipe-list, .extras-list, .ingredients-list {
+    gap: 0.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.recipe, .extra {
+    display: flex;
+    gap: 1rem;
+}
+
+.selected-meals-list, .selected-extras-list {
+    gap: 0.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.shopping-list {
+    padding-top: 1rem;
+    gap: 0.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.input {
+    width: 50px;
+}

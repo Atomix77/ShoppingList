@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="shoppingList.css">
+    <title>Shopping List</title>
+</head>
+<body onload="getRecipes(), getExtras()" >
+    <h1>Shopping List Creator</h1>
+    <div class="container">
+        <div class="recipe-listcontainer" id="recipeListContainer">
+            <h2>Recipes:</h2>
+            <div class="recipe-list" id="recipeList"></div>
+
+            <div class="recipe-ingredients-container" id="recipeIngredientsContainer">
+                <h2>Ingredients:</h2>
+                <div class="ingredients-list" id="ingredientsList"></div>
+            </div>
+        </div>
+        <div class="extras-container" id="extrasContainer">
+            <h2>Extras:</h2>
+            <div class="extras-list" id="extrasList"></div>
+        </div>
+        <div class="shopping-listcontainer" id="shoppingListContainer">
+            <div class="selected-meals" id="selectedMeals">
+                <h2>Selected Meals:</h2>
+                <div class="selected-meals-list" id="selectedMealsList">
+                    <p>No Meals Selected</p>
+                </div>
+            </div>
+            <div class="selected-extras" id="selectedExtras">
+                <h2>Selected Extras:</h2>
+                <div class="selected-extras-list" id="selectedExtrasList">
+                    <p>No Extras Selected</p>
+                </div>
+            </div>
+            <h2>Shopping List:</h2>
+            <button onclick="generateShoppingList()">Generate Shopping List</button>
+            <div class="shopping-list" id="shoppingList"></div>
+        </div> 
+    </div>
+</body>
+<script src="shoppingList.js"></script>
