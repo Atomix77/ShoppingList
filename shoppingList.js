@@ -245,7 +245,7 @@ function getRecipes() {
     for (let i = 0; i < recipes.length; i++) {
         let selectedCount = _SELECTED_MEALS.filter(meal => meal === recipes[i]).length;
         HTML += `<div class="recipe" onclick="getIngredients('${recipes[i]}')"> 
-            <div>${recipes[i]} </div>
+            <div class='text'>${recipes[i]} </div>
             <button class='decrease-button' onclick="selectRecipe('${recipes[i]}', -1)">-</button>
             <input class='input' type="number" value="${selectedCount}" readonly>
             <button class='increase-button' onclick="selectRecipe('${recipes[i]}', 1)">+</button>
@@ -263,10 +263,10 @@ function getExtras() {
     for (let i = 0; i < extras.length; i++) {
         let selectedCount = _SELECTED_EXTRAS.filter(extra => extra === extras[i]).length;
         HTML += `<div class="extra"> 
-            <div>${extras[i]} </div>
-            <button class='decrease' onclick="selectExtra('${extras[i]}', -1)">-</button>
+            <div class='text'>${extras[i]} </div>
+            <button class='decrease-button' onclick="selectExtra('${extras[i]}', -1)">-</button>
             <input class='input' type="number" value="${selectedCount}" readonly>
-            <button class='increase' onclick="selectExtra('${extras[i]}', 1)">+</button>
+            <button class='increase-button' onclick="selectExtra('${extras[i]}', 1)">+</button>
             </div>`;
     }
     document.getElementById('extrasList').innerHTML = HTML;
@@ -276,7 +276,7 @@ function getIngredients(recipe) {
     let ingredients = _RECIPES[recipe];
     let HTML = ``;
     for (let i = 0; i < ingredients.length; i++) {
-        HTML += `<div class="ingredient">${ingredients[i].ingredient}: ${ingredients[i].quantity} ${_QUANTITY_TYPE[ingredients[i].ingredient]}</div>`;
+        HTML += `<div class="ingredient text text">${ingredients[i].ingredient}: ${ingredients[i].quantity} ${_QUANTITY_TYPE[ingredients[i].ingredient]}</div>`;
     }
     document.getElementById('ingredientsList').innerHTML = HTML;
 };
@@ -314,14 +314,14 @@ function selectExtra(extra, value) {
 function showSelectedMeals() {
     let HTML = ``;
     if (_SELECTED_MEALS.length == 0) {
-        HTML = `No Meals Selected`;
+        HTML = `<div class='text'> No Meals Selected </div>`;
     } else {
         for (let i = 0; i < _SELECTED_MEALS.length; i++) {
             if (!HTML.includes(_SELECTED_MEALS[i])) {
                 if (_SELECTED_MEALS.filter(item => item === _SELECTED_MEALS[i]).length == 1) {
-                    HTML += `<div class="selectedMeal">${_SELECTED_MEALS[i]}</div>`;
+                    HTML += `<div class="selectedMeal text">${_SELECTED_MEALS[i]}</div>`;
                 } else {
-                    HTML += `<div class="selectedMeal">${_SELECTED_MEALS[i]} (x ${_SELECTED_MEALS.filter(item => item === _SELECTED_MEALS[i]).length})</div>`;
+                    HTML += `<div class="selectedMeal text">${_SELECTED_MEALS[i]} (x ${_SELECTED_MEALS.filter(item => item === _SELECTED_MEALS[i]).length})</div>`;
                 }
             }
         }
@@ -332,14 +332,14 @@ function showSelectedMeals() {
 function showSelectedExtras() {
     let HTML = ``;
     if (_SELECTED_EXTRAS.length == 0) {
-        HTML = `No Extras Selected`;
+        HTML = `<div class='text'> No Extras Selected </div>`;
     } else {
         for (let i = 0; i < _SELECTED_EXTRAS.length; i++) {
             if (!HTML.includes(_SELECTED_EXTRAS[i])) {
                 if (_SELECTED_EXTRAS.filter(item => item === _SELECTED_EXTRAS[i]).length == 1) {
-                    HTML += `<div class="selectedExtra">${_SELECTED_EXTRAS[i]}</div>`;
+                    HTML += `<div class="selectedExtra text">${_SELECTED_EXTRAS[i]}</div>`;
                 } else {
-                    HTML += `<div class="selectedExtra">${_SELECTED_EXTRAS[i]} (x ${_SELECTED_EXTRAS.filter(item => item === _SELECTED_EXTRAS[i]).length})</div>`;
+                    HTML += `<div class="selectedExtra text">${_SELECTED_EXTRAS[i]} (x ${_SELECTED_EXTRAS.filter(item => item === _SELECTED_EXTRAS[i]).length})</div>`;
                 }
             }
         }
@@ -378,7 +378,7 @@ function generateShoppingList() {
 function showShoppingList() {
     let HTML = ``;
     for (let ingredient in _SHOPPING_LIST) {
-        HTML += `<div class="shoppingListItem">${ingredient}: ${_SHOPPING_LIST[ingredient]} ${_QUANTITY_TYPE[ingredient]}</div>`;
+        HTML += `<div class="shoppingListItem text">${ingredient}: ${_SHOPPING_LIST[ingredient]} ${_QUANTITY_TYPE[ingredient]}</div>`;
     }
     document.getElementById('shoppingList').innerHTML = HTML;
 };
